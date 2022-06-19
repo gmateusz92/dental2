@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 
-def xx(request):
-    return render(request, 'xx.html', {})
+
 
 def home(request):
     return render(request, 'home.html', {})
