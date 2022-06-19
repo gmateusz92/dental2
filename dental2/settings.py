@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-#import django_heroku
-#import dj_database_url
-#from decouple import config
+import django_heroku
+import dj_database_url
+from decouple import config
 
 #django_heroku.settings(locals())
 
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website',
-    #'whitenoise.runserver_nostatic',
+
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'dental2.urls'
@@ -126,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = BASE_DIR, 'static'
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 '''
 EMAIL_HOST ='smtp.poczta.o2.pl'
@@ -144,6 +144,9 @@ EMAIL_PORT= 1025
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD =''
 EMAIL_USE_TLS = False
+
+
+django_heroku.settings(locals())
 
 
 # Default primary key field type
